@@ -14,7 +14,10 @@
           "role": "Developer"
         }
     ],
-    "keywords": [ "wordpress", "suv" ],
+    "keywords": [
+        "wordpress",
+        "suv"
+    ],
     "support": {
         "issues": "https://github.com/GrottoPress/wordpress-suv/issues",
         "wiki": "https://github.com/GrottoPress/wordpress-suv/wiki",
@@ -24,6 +27,15 @@
         "php": ">=7.0",
         "grottopress/getter": "^0.2.1",
         "florianwolters/component-util-singleton": "^0.3.2"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "npm install",
+            "chmod +x ./bin/*"
+        ],
+        "release": [
+            "./bin/release"
+        ]
     },
     "autoload": {
         "psr-4": { "GrottoPress\\WordPress\\SUV\\": "src/" }
