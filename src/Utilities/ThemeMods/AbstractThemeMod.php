@@ -12,7 +12,7 @@
 
 declare (strict_types = 1);
 
-namespace GrottoPress\WordPress\SUV\Utilities\Mods;
+namespace GrottoPress\WordPress\SUV\Utilities\ThemeMods;
 
 use GrottoPress\Getter\Getter;
 
