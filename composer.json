@@ -1,0 +1,31 @@
+{
+    "name": "grottopress/wordpress-suv",
+    "description": "A scaffold for implementing the SUV architecture",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "GrottoPress.com",
+            "email": "info@grottopress.com",
+            "homepage": "https://www.grottopress.com"
+        },
+        {
+          "name": "N Atta Kusi Adusei",
+          "homepage": "https://twitter.com/akadusei",
+          "role": "Developer"
+        }
+    ],
+    "keywords": [ "wordpress", "suv" ],
+    "support": {
+        "issues": "https://github.com/GrottoPress/wordpress-suv/issues",
+        "wiki": "https://github.com/GrottoPress/wordpress-suv/wiki",
+        "source": "https://github.com/GrottoPress/wordpress-suv/"
+    },
+    "require": {
+        "php": ">=7.0",
+        "grottopress/getter": "^0.2.1",
+        "florianwolters/component-util-singleton": "^0.3.2"
+    },
+    "autoload": {
+        "psr-4": { "GrottoPress\\WordPress\\SUV\\": "src/" }
+    }
+}

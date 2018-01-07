@@ -1,0 +1,209 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "6d38d92598880ef14327b47527c3e3fa",
+    "packages": [
+        {
+            "name": "florianwolters/component-core-stringutils",
+            "version": "v0.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FlorianWolters/PHP-Component-Core-StringUtils.git",
+                "reference": "51978fa9a4d30104192036f0b1f11fc1c3bc4667"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FlorianWolters/PHP-Component-Core-StringUtils/zipball/51978fa9a4d30104192036f0b1f11fc1c3bc4667",
+                "reference": "51978fa9a4d30104192036f0b1f11fc1c3bc4667",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "FlorianWolters": "src/php"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Florian Wolters",
+                    "email": "wolters.fl@gmail.com",
+                    "homepage": "http://blog.florianwolters.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Offers operations on the data type string as a PHP component.",
+            "homepage": "http://github.com/FlorianWolters/PHP-Component-Core-StringUtils",
+            "keywords": [
+                "helper",
+                "language",
+                "string",
+                "wrapper"
+            ],
+            "time": "2013-07-01T10:24:07+00:00"
+        },
+        {
+            "name": "florianwolters/component-util-reflection",
+            "version": "v0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FlorianWolters/PHP-Component-Util-Reflection.git",
+                "reference": "ffc94b62e2834d7d0306374d952eda7a5abd1844"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FlorianWolters/PHP-Component-Util-Reflection/zipball/ffc94b62e2834d7d0306374d952eda7a5abd1844",
+                "reference": "ffc94b62e2834d7d0306374d952eda7a5abd1844",
+                "shasum": ""
+            },
+            "require": {
+                "florianwolters/component-core-stringutils": ">=0.2-beta",
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "FlorianWolters": "src/php"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Florian Wolters",
+                    "email": "wolters.fl@gmail.com",
+                    "homepage": "http://blog.florianwolters.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Provides operations for the PHP Reflection API as a PHP component.",
+            "homepage": "http://github.com/FlorianWolters/PHP-Component-Util-Reflection",
+            "keywords": [
+                "reflection",
+                "utility"
+            ],
+            "time": "2013-03-19T16:42:41+00:00"
+        },
+        {
+            "name": "florianwolters/component-util-singleton",
+            "version": "v0.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FlorianWolters/PHP-Component-Util-Singleton.git",
+                "reference": "ab39ba531a38c3b76b4babb0035ce840cde7f443"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FlorianWolters/PHP-Component-Util-Singleton/zipball/ab39ba531a38c3b76b4babb0035ce840cde7f443",
+                "reference": "ab39ba531a38c3b76b4babb0035ce840cde7f443",
+                "shasum": ""
+            },
+            "require": {
+                "florianwolters/component-core-stringutils": "0.3.*",
+                "florianwolters/component-util-reflection": "0.2.*",
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "FlorianWolters": [
+                        "src/php",
+                        "src/tests/unit-tests/php",
+                        "src/tests/mocks/php"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Florian Wolters",
+                    "email": "wolters.fl@gmail.com",
+                    "homepage": "http://blog.florianwolters.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "The Singleton (and Registry of Singletons a.k.a. Multiton) design pattern as a PHP component.",
+            "homepage": "http://github.com/FlorianWolters/PHP-Component-Util-Singleton",
+            "keywords": [
+                "creation",
+                "pattern",
+                "singleton",
+                "utility"
+            ],
+            "time": "2013-06-29T12:35:22+00:00"
+        },
+        {
+            "name": "grottopress/getter",
+            "version": "0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GrottoPress/getter.git",
+                "reference": "7e80d92ffda55dfa77a8c61113d994894998f05f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GrottoPress/getter/zipball/7e80d92ffda55dfa77a8c61113d994894998f05f",
+                "reference": "7e80d92ffda55dfa77a8c61113d994894998f05f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "^2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GrottoPress\\Getter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "GrottoPress.com",
+                    "email": "info@grottopress.com",
+                    "homepage": "https://www.grottopress.com"
+                },
+                {
+                    "name": "N Atta Kusi Adusei",
+                    "homepage": "https://twitter.com/akadusei",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Get private object attributes directly, without calling getter methods.",
+            "keywords": [
+                "OOP",
+                "getter"
+            ],
+            "time": "2017-11-25T11:59:21+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=7.0"
+    },
+    "platform-dev": []
+}
