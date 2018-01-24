@@ -77,7 +77,7 @@ abstract class AbstractThemeMod
      * @since 0.1.0
      * @access public
      *
-     * @return mixed Mod.
+     * @return mixed
      */
     public function get()
     {
@@ -88,5 +88,41 @@ abstract class AbstractThemeMod
         }
 
         return \get_theme_mod($this->name, $this->default);
+    }
+
+    /**
+     * Update mod
+     *
+     * @param mixed $newValue
+     *
+     * @since 0.2.1
+     * @access public
+     *
+     * @return bool Whether or not update was successful.
+     */
+    public function update($newValue): bool
+    {
+        if (!$this->name) {
+            return false;
+        }
+
+        return \set_theme_mod($this->name, $newValue);
+    }
+
+    /**
+     * Delete mod
+     *
+     * @param mixed $newValue
+     *
+     * @since 0.2.1
+     * @access public
+     */
+    public function delete()
+    {
+        if (!$this->name) {
+            return;
+        }
+
+        \remove_theme_mod($this->name);
     }
 }
