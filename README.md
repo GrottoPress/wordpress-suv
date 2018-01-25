@@ -437,7 +437,7 @@ Other plugins and themes now have access to the singleton plugin instance, and c
 
 ```php
 \add_action('init', function () {
-    \remove_action('wp_footer', \MyPlugin()->setups['Footer'], 'renderUselessText');
+    \remove_action('wp_footer', [\MyPlugin()->setups['Footer'], 'renderUselessText']);
 });
 ```
 
