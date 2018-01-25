@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6d38d92598880ef14327b47527c3e3fa",
+    "content-hash": "1106dd8e3867be7b4e725132b4a4fcd5",
     "packages": [
         {
             "name": "florianwolters/component-core-stringutils",

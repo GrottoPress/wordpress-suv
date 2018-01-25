@@ -25,12 +25,11 @@
     },
     "require": {
         "php": ">=7.0",
-        "grottopress/getter": "^0.2.1",
-        "florianwolters/component-util-singleton": "^0.3.2"
+        "grottopress/getter": "^0.2",
+        "florianwolters/component-util-singleton": "^0.3"
     },
     "scripts": {
         "post-install-cmd": [
-            "npm install",
             "chmod +x ./bin/*"
         ],
         "release": [
