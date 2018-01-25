@@ -40,7 +40,7 @@ You are strongly encouraged to use strict typing in PHP 7, and specify types for
 
 ### Directory Structure
 
-Your own app's directory structure:
+Set up your own app's directory structure as follows:
 
 ```
 .
@@ -77,7 +77,7 @@ Your own app's directory structure:
 └── README.md
 ```
 
-Certainly, not all directories/files apply in your case. Remove whichever you do not need, and add whatever you require as necessary. Just keep the general concept in mind.
+Not all directories/files may apply in your case. Remove whichever you do not need, and add whatever you require as necessary. Just keep the general concept in mind.
 
 ### Autoloading
 
