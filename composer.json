@@ -30,7 +30,6 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "npm install",
             "chmod +x ./bin/*"
         ],
         "release": [
