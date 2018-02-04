@@ -257,6 +257,7 @@ namespace GrottoPress\MyPlugin\Utilities;
 !\defined('WPINC') && die;
 
 use GrottoPress\MyPlugin\MyPlugin;
+use GrottoPress\Getter\Getter;
 
 /**
  * Utilities
@@ -265,6 +266,8 @@ use GrottoPress\MyPlugin\MyPlugin;
  */
 class Utilities
 {
+    use Getter;
+
     /**
      * App
      *
@@ -316,6 +319,8 @@ class Utilities
      *
      * @since 0.1.0
      * @access private
+     *
+     * @return Text
      */
     private function getText(): Text
     {
@@ -346,6 +351,8 @@ namespace GrottoPress\MyPlugin\Utilities;
 
 !\defined('WPINC') && die;
 
+use GrottoPress\Getter\Getter;
+
 /**
  * Text utility
  *
@@ -353,6 +360,8 @@ namespace GrottoPress\MyPlugin\Utilities;
  */
 class Text
 {
+    use Getter;
+
     /**
      * Utilities
      *
@@ -389,7 +398,7 @@ class Text
      * @since 0.1.0
      * @access public
      *
-     * @return bool
+     * @return string
      */
     public function uselessText(): string
     {
@@ -490,7 +499,7 @@ require __DIR__.'/vendor/autoload.php';
 
 If you're looking to build a theme using **SUV**, you should check out [Jentil](https://jentil.grottopress.com).
 
-Jentil is a framework for rapid WordPress theme development, implemented using the **SUV** architecture.
+Jentil is a framework for rapid WordPress theme development, built using the **SUV** architecture.
 
 It comes with numerous features, and includes a loader that loads templates (eg: `page.php`, `index.php`, `single.php` etc) **only** from the `app/templates` directory, and partials (eg: `header.php`, `footer.php`, `sidebar.php`) from the `app/partials` directory.
 
