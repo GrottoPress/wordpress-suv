@@ -263,7 +263,7 @@ use GrottoPress\MyPlugin\MyPlugin;
  *
  * @since 0.1.0
  */
-final class Utilities
+class Utilities
 {
     /**
      * App
@@ -351,7 +351,7 @@ namespace GrottoPress\MyPlugin\Utilities;
  *
  * @since 0.1.0
  */
-final class Text
+class Text
 {
     /**
      * Utilities
@@ -454,7 +454,7 @@ Now, to conclude with our plugin's bootstrap:
  *
  * @wordpress-plugin
  * Plugin Name: My Plugin
- * Plugin URI: https://magpack.grottopress.com
+ * Plugin URI: https://www.grottopress.com
  * Description: My awesome plugin
  * Version: 0.1.0
  * Author: GrottoPress
