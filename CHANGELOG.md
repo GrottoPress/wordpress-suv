@@ -6,23 +6,23 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## 0.2.3 - 2018-02-04
 
-### Changed
-- Fixed a few errors in documentation.
+### Fixed
+- Errors in documentation.
 
 ## 0.2.2 - 2018-01-25
 
 ### Fixed
-- Fixed few errors in documentation.
+- Errors in documentation.
 
 ## 0.2.1 - 2018-01-25
 
 ### Changed
-- Added `update()` and `delete()` methods to `AbstractThemeMod` utility.
+- Add update and delete for theme mods.
 
 ## 0.2.0 - 2018-01-09
 
 ### Added
-- Added `AbstractTheme`, `AbstractChildTheme` and `AbstractPlugin` classes.
+- Theme, child theme and plugin abstract classes.
 
 ## 0.1.0 - 2018-01-07
 
