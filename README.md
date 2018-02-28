@@ -257,7 +257,7 @@ namespace GrottoPress\MyPlugin\Utilities;
 !\defined('WPINC') && die;
 
 use GrottoPress\MyPlugin\MyPlugin;
-use GrottoPress\Getter\Getter;
+use GrottoPress\Getter\GetterTrait;
 
 /**
  * Utilities
@@ -266,7 +266,7 @@ use GrottoPress\Getter\Getter;
  */
 class Utilities
 {
-    use Getter;
+    use GetterTrait;
 
     /**
      * App
@@ -351,7 +351,7 @@ namespace GrottoPress\MyPlugin\Utilities;
 
 !\defined('WPINC') && die;
 
-use GrottoPress\Getter\Getter;
+use GrottoPress\Getter\GetterTrait;
 
 /**
  * Text utility
@@ -360,7 +360,7 @@ use GrottoPress\Getter\Getter;
  */
 class Text
 {
-    use Getter;
+    use GetterTrait;
 
     /**
      * Utilities

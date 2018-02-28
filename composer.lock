@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1106dd8e3867be7b4e725132b4a4fcd5",
+    "content-hash": "7e5bbba6e079661f7aa4a9e24a83b233",
     "packages": [
         {
             "name": "florianwolters/component-core-stringutils",
@@ -148,16 +148,16 @@
         },
         {
             "name": "grottopress/getter",
-            "version": "0.2.1",
+            "version": "0.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrottoPress/getter.git",
-                "reference": "7e80d92ffda55dfa77a8c61113d994894998f05f"
+                "reference": "0eda2a300ea4f99a8b5e8fcb869eeeaa742a669c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrottoPress/getter/zipball/7e80d92ffda55dfa77a8c61113d994894998f05f",
-                "reference": "7e80d92ffda55dfa77a8c61113d994894998f05f",
+                "url": "https://api.github.com/repos/GrottoPress/getter/zipball/0eda2a300ea4f99a8b5e8fcb869eeeaa742a669c",
+                "reference": "0eda2a300ea4f99a8b5e8fcb869eeeaa742a669c",
                 "shasum": ""
             },
             "require": {
@@ -193,7 +193,7 @@
                 "OOP",
                 "getter"
             ],
-            "time": "2017-11-25T11:59:21+00:00"
+            "time": "2018-02-28T14:59:22+00:00"
         }
     ],
     "packages-dev": [],

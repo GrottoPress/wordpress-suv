@@ -14,7 +14,7 @@ declare (strict_types = 1);
 
 namespace GrottoPress\WordPress\SUV;
 
-use GrottoPress\Getter\Getter;
+use GrottoPress\Getter\GetterTrait;
 use FlorianWolters\Component\Util\Singleton\SingletonTrait;
 
 /**
@@ -24,7 +24,7 @@ use FlorianWolters\Component\Util\Singleton\SingletonTrait;
  */
 abstract class AbstractApp
 {
-    use SingletonTrait, Getter;
+    use SingletonTrait, GetterTrait;
 
     /**
      * App setups

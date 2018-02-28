@@ -15,7 +15,7 @@ declare (strict_types = 1);
 namespace GrottoPress\WordPress\SUV\Setups;
 
 use GrottoPress\WordPress\SUV\AbstractApp;
-use GrottoPress\Getter\Getter;
+use GrottoPress\Getter\GetterTrait;
 
 /**
  * Abstract Setup
@@ -24,7 +24,7 @@ use GrottoPress\Getter\Getter;
  */
 abstract class AbstractSetup
 {
-    use Getter;
+    use GetterTrait;
 
     /**
      * App

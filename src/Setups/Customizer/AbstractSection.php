@@ -14,7 +14,7 @@ declare (strict_types = 1);
 
 namespace GrottoPress\WordPress\SUV\Setups\Customizer;
 
-use GrottoPress\Getter\Getter;
+use GrottoPress\Getter\GetterTrait;
 use WP_Customize_Manager as WPCustomizer;
 
 /**
@@ -24,7 +24,7 @@ use WP_Customize_Manager as WPCustomizer;
  */
 abstract class AbstractSection
 {
-    use Getter;
+    use GetterTrait;
 
     /**
      * Customizer
