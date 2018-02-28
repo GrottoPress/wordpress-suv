@@ -14,7 +14,7 @@ declare (strict_types = 1);
 
 namespace GrottoPress\WordPress\SUV\Utilities\ThemeMods;
 
-use GrottoPress\Getter\Getter;
+use GrottoPress\Getter\GetterTrait;
 
 /**
  * Abstract Theme Mod
@@ -23,7 +23,7 @@ use GrottoPress\Getter\Getter;
  */
 abstract class AbstractThemeMod
 {
-    use Getter;
+    use GetterTrait;
 
     /**
      * Mod name
