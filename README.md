@@ -25,7 +25,7 @@ It emphasises an object oriented approach to writing WordPress plugins and theme
 - [Gulp](https://gulpjs.com/) for building assets
 - [Sass/SCSS](http://sass-lang.com/) for writing and compiling CSS
 - [Typescript](http://www.typescriptlang.org/) for JS.
-- [WP Browser](https://packagist.org/packages/lucatume/wp-browser) for tests
+- [WP browser](https://packagist.org/packages/lucatume/wp-browser) and [function mocker](https://packagist.org/packages/lucatume/function-mocker) for tests
 - [Travis CI](https://travis-ci.org/) for CI/CD
 
 ## Code style
@@ -92,81 +92,46 @@ Your `composer.json` autoload config:
         "app/helpers.php"
     ]
 },
-"autoload-dev": {
-    "psr-4": {
-        "Vendor\\MyApp\\": "tests/"
-    }
-},
 ```
 
 ### Require SUV
 
 From the root of your app, run:
 
-`composer require grottopress/wordpress-suv`
+```bash
+composer require grottopress/wordpress-suv
+```
 
 ## Sample WordPress plugin
 
 Let's write a sample WordPress plugin, shall we?
 
 ```php
-<?php // @ wp-content/plugins/my-plugin/app/libraries/MyPlugin.php
+// @ wp-content/plugins/my-plugin/app/libraries/MyPlugin.php
 
-/**
- * My Plugin
- *
- * @package GrottoPress\MyPlugin
- * @since 0.1.0
- *
- * @author GrottoPress <info@grottopress.com>
- */
-
+<?php
 declare (strict_types = 1);
 
-namespace GrottoPress\MyPlugin;
+namespace Vendor\MyPlugin;
 
 !\defined('WPINC') && die;
 
-use GrottoPress\MyPlugin\Utilities\Utilities;
+use Vendor\MyPlugin\Utilities\Utilities;
 use GrottoPress\WordPress\SUV\AbstractPlugin;
 
-/**
- * My Plugin
- *
- * @since 0.1.0
- */
 final class MyPlugin extends AbstractPlugin
 {
     /**
-     * Theme utilities
-     *
-     * @since 0.1.0
-     * @access private
-     *
      * @var Utilities
      */
     private $utilities = null;
 
-    /**
-     * Constructor
-     *
-     * @since 0.1.0
-     * @access protected
-     */
     protected function __construct()
     {
         $this->setups['Footer'] = new Setups\Footer($this);
         // ...
     }
 
-    /**
-     * Get utilities
-     *
-     * @since 0.1.0
-     * @access protected
-     *
-     * @return Utilities
-     */
     protected function getUtilities(): Utilities
     {
         if (null === $this->utilities) {
@@ -180,51 +145,25 @@ final class MyPlugin extends AbstractPlugin
 ```
 
 ```php
-<?php // @ wp-content/plugins/my-plugin/app/libraries/Setups/Footer.php
+// @ wp-content/plugins/my-plugin/app/libraries/Setups/Footer.php
 
-/**
- * Footer setup
- *
- * @package GrottoPress\MyPlugin\Setups
- * @since 0.1.0
- *
- * @author GrottoPress <info@grottopress.com>
- */
-
+<?php 
 declare (strict_types = 1);
 
-namespace GrottoPress\MyPlugin\Setups;
+namespace Vendor\MyPlugin\Setups;
 
 !\defined('WPINC') && die;
 
 use GrottoPress\WordPress\SUV\Setups\AbstractSetup;
 
-/**
- * Footer setup
- *
- * @since 0.1.0
- */
 final class Footer extends AbstractSetup
 {
-    /**
-     * Run setup
-     *
-     * @since 0.1.0
-     * @access public
-     */
     public function run()
     {
         \add_action('wp_footer', [$this, 'renderUselessText']);
     }
 
     /**
-     * Render useless text
-     *
-     * Prints useless text onto footer
-     *
-     * @since 0.1.0
-     * @access public
-     *
      * @action wp_footer
      */
     public function renderUselessText()
@@ -239,89 +178,42 @@ final class Footer extends AbstractSetup
 You may file utility classes in `app/libraries/Utilities/`. Utility classes do not contain calls to `\add_action()`, `\remove_action()`, `\add_filter()` or `\remove_filter()`, but contain functionality that setup classes can use to fulfill their mission.
 
 ```php
-<?php // @ wp-content/plugins/my-plugin/app/libraries/Utilities/Utilities.php
+// @ wp-content/plugins/my-plugin/app/libraries/Utilities/Utilities.php
 
-/**
- * Utilities
- *
- * @package GrottoPress\MyPlugin\Utilities
- * @since 0.1.0
- *
- * @author GrottoPress <info@grottopress.com>
- */
-
+<?php 
 declare (strict_types = 1);
 
-namespace GrottoPress\MyPlugin\Utilities;
+namespace Vendor\MyPlugin\Utilities;
 
 !\defined('WPINC') && die;
 
-use GrottoPress\MyPlugin\MyPlugin;
+use Vendor\MyPlugin\MyPlugin;
 use GrottoPress\Getter\GetterTrait;
 
-/**
- * Utilities
- *
- * @since 0.1.0
- */
 class Utilities
 {
     use GetterTrait;
 
     /**
-     * App
-     *
-     * @since 0.1.0
-     * @access private
-     *
      * @var MyPlugin
      */
     private $app;
     
     /**
-     * Text utility
-     *
-     * @since 0.1.0
-     * @access private
-     *
      * @var Text
      */
     private $text = null;
 
-    /**
-     * Constructor
-     *
-     * @param MyPlugin $plugin
-     *
-     * @since 0.1.0
-     * @access public
-     */
     public function __construct(MyPlugin $plugin)
     {
         $this->app = $plugin;
     }
-    
-    /**
-     * Get app
-     *
-     * @since 0.1.0
-     * @access private
-     *
-     * @return MyPlugin
-     */
+
     private function getApp(): MyPlugin
     {
         return $this->app;
     }
 
-    /**
-     * Get text utility
-     *
-     * @since 0.1.0
-     * @access private
-     *
-     * @return Text
-     */
     private function getText(): Text
     {
         if (null === $this->text) {
@@ -334,52 +226,26 @@ class Utilities
 ```
 
 ```php
-<?php // @ wp-content/plugins/my-plugin/app/libraries/Utilities/Text.php
+// @ wp-content/plugins/my-plugin/app/libraries/Utilities/Text.php
 
-/**
- * Text Utility
- *
- * @package GrottoPress\MyPlugin\Utilities
- * @since 0.1.0
- *
- * @author GrottoPress <info@grottopress.com>
- */
-
+<?php 
 declare (strict_types = 1);
 
-namespace GrottoPress\MyPlugin\Utilities;
+namespace Vendor\MyPlugin\Utilities;
 
 !\defined('WPINC') && die;
 
 use GrottoPress\Getter\GetterTrait;
 
-/**
- * Text utility
- *
- * @since 0.1.0
- */
 class Text
 {
     use GetterTrait;
 
     /**
-     * Utilities
-     *
-     * @since 0.1.0
-     * @access private
-     *
      * @var Utilities
      */
     private $utilities;
 
-    /**
-     * Constructor
-     *
-     * @param Utilities $utilities
-     *
-     * @since 0.1.0
-     * @access public
-     */
     public function __construct(Utilities $utilities)
     {
         $this->utilities = $utilities;
@@ -394,11 +260,6 @@ class Text
      *
      * It is done here only for the purpose of demonstration,
      * if you know what I mean.
-     *
-     * @since 0.1.0
-     * @access public
-     *
-     * @return string
      */
     public function uselessText(): string
     {
@@ -407,35 +268,20 @@ class Text
 }
 ```
 
-Since our plugin `extends` **SUV**'s `AbstractPlugin`, it is essentially a singleton. The entire plugin (with all objects) can be retrieved with a call to `GrottoPress\MyPlugin\MyPlugin::getInstance()`
+Since our plugin `extends` **SUV**'s `AbstractPlugin`, it is essentially a singleton. The entire plugin (with all objects) can be retrieved with a call to `Vendor\MyPlugin\MyPlugin::getInstance()`
 
 Let's create a helper to do this in `app/helpers.php`.
 
 ```php
-<?php // @ wp-content/plugins/my-plugin/app/helpers.php
+// @ wp-content/plugins/my-plugin/app/helpers.php
 
-/**
- * Helpers
- *
- * @package GrottoPress\MyPlugin
- * @since 0.1.0
- *
- * @author GrottoPress <info@grottopress.com>
- */
-
+<?php
 declare (strict_types = 1);
 
 !\defined('WPINC') && die;
 
-use GrottoPress\MyPlugin\MyPlugin;
+use Vendor\MyPlugin\MyPlugin;
 
-/**
- * My Plugin
- *
- * @since 0.1.0
- *
- * @return MyPlugin
- */
 function MyPlugin(): MyPlugin
 {
     return MyPlugin::getInstance();
@@ -453,14 +299,11 @@ Other plugins and themes now have access to the singleton plugin instance, and c
 Now, to conclude with our plugin's bootstrap:
 
 ```php
-<?php // @ wp-content/plugins/my-plugin/my-plugin.php
+// @ wp-content/plugins/my-plugin/my-plugin.php
+
+<?php
 
 /**
- * Bootstrap
- *
- * @since 0.1.0
- * @package GrottoPress\MyPlugin
- *
  * @wordpress-plugin
  * Plugin Name: My Plugin
  * Plugin URI: https://www.grottopress.com
@@ -478,17 +321,10 @@ declare (strict_types = 1);
 
 !\defined('WPINC') && die;
 
-/**
- * Autoload
- * 
- * @since 0.1.0
- */
 require __DIR__.'/vendor/autoload.php';
 
 /**
  * Run plugin
- * 
- * @since 0.1.0
  */
 \add_action('plugins_loaded', function () {
     \MyPlugin()->run();

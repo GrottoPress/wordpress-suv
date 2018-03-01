@@ -1,15 +1,4 @@
 <?php
-
-/**
- * Abstract Customizer
- *
- * @package GrottoPress\WordPress\SUV\Customizer
- * @since 0.1.0
- *
- * @author GrottoPress <info@grottopress.com>
- * @author N Atta Kusi Adusei
- */
-
 declare (strict_types = 1);
 
 namespace GrottoPress\WordPress\SUV\Setups\Customizer;
@@ -17,42 +6,25 @@ namespace GrottoPress\WordPress\SUV\Setups\Customizer;
 use GrottoPress\WordPress\SUV\Setups\AbstractSetup;
 use WP_Customize_Manager as WPCustomizer;
 
-/**
- * Abstract Customizer
- *
- * @since 0.1.0
- */
 abstract class AbstractCustomizer extends AbstractSetup
 {
     /**
-     * Panels
-     *
-     * @since 0.1.0
-     * @access protected
+     * Panels comprise sections which, in turn,
+     * comprise settings.
      *
      * @var AbstractPanel[]
      */
     protected $panels = [];
 
     /**
-     * Sections
-     *
-     * @since 0.1.0
-     * @access protected
+     * Use this ONLY if sections come under no panel.
+     * Each section comprises its settings.
      *
      * @var AbstractSection[]
      */
     protected $sections = [];
 
     /**
-     * Get panels
-     *
-     * Panels comprise sections which, in turn,
-     * comprise settings.
-     *
-     * @since 0.1.0
-     * @access protected
-     *
      * @return AbstractPanel[]
      */
     protected function getPanels(): array
@@ -61,14 +33,6 @@ abstract class AbstractCustomizer extends AbstractSetup
     }
 
     /**
-     * Get sections
-     *
-     * Use this ONLY if sections come under no panel.
-     * Each section comprises its settings.
-     *
-     * @since 0.1.0
-     * @access protected
-     *
      * @return AbstractSection[]
      */
     protected function getSections(): array
@@ -76,29 +40,14 @@ abstract class AbstractCustomizer extends AbstractSetup
         return $this->sections;
     }
 
-    /**
-     * Run setup
-     *
-     * @since 0.5.0
-     * @access public
-     */
     public function run()
     {
         \add_action('customize_register', [$this, 'register']);
     }
 
     /**
-     * Register theme customizer
-     *
      * Be sure to set $this->panels, $this->sections HERE, in the child class.
-     * Doing that in the constructor would be too early; it won't work.
-     *
-     * @param WPCustomizer $WPCustomizer
-     *
-     * @action customize_register
-     *
-     * @since 0.1.0
-     * @access public
+     * Doing so in the constructor would be too early; it won't work.
      */
     public function register(WPCustomizer $WPCustomizer)
     {
@@ -106,14 +55,6 @@ abstract class AbstractCustomizer extends AbstractSetup
         $this->addSections($WPCustomizer);
     }
 
-    /**
-     * Add panels
-     *
-     * @param WPCustomizer $WPCustomizer
-     *
-     * @since 0.1.0
-     * @access protected
-     */
     protected function addPanels(WPCustomizer $WPCustomizer)
     {
         foreach ($this->panels as $panel) {
@@ -121,14 +62,6 @@ abstract class AbstractCustomizer extends AbstractSetup
         }
     }
 
-    /**
-     * Add sections
-     *
-     * @param WPCustomizer $WPCustomizer
-     *
-     * @since 0.1.0
-     * @access protected
-     */
     protected function addSections(WPCustomizer $WPCustomizer)
     {
         foreach ($this->sections as $section) {
