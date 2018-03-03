@@ -18,7 +18,7 @@ abstract class AbstractSection
     /**
      * @var string
      */
-    protected $name;
+    protected $id;
 
     /**
      * @var array
@@ -40,9 +40,9 @@ abstract class AbstractSection
         return $this->customizer;
     }
 
-    protected function getName(): string
+    protected function getID(): string
     {
-        return $this->name;
+        return $this->id;
     }
 
     /**
@@ -59,11 +59,11 @@ abstract class AbstractSection
      */
     public function add(WPCustomizer $WPCustomizer)
     {
-        if (!$this->name) {
+        if (!$this->id) {
             return;
         }
 
-        $WPCustomizer->add_section($this->name, $this->args);
+        $WPCustomizer->add_section($this->id, $this->args);
 
         foreach ($this->settings as $setting) {
             $setting->add($WPCustomizer);
@@ -72,10 +72,10 @@ abstract class AbstractSection
 
     public function remove(WPCustomizer $WPCustomizer)
     {
-        if (!$this->name) {
+        if (!$this->id) {
             return;
         }
-        
-        $WPCustomizer->remove_section($this->name);
+
+        $WPCustomizer->remove_section($this->id);
     }
 }

@@ -12,16 +12,16 @@ abstract class AbstractThemeMod
     /**
      * @var string
      */
-    protected $name;
+    protected $id;
 
     /**
      * @var mixed
      */
     protected $default;
 
-    protected function getName(): string
+    protected function getID(): string
     {
-        return $this->name;
+        return $this->id;
     }
 
     protected function getDefault()
@@ -31,30 +31,30 @@ abstract class AbstractThemeMod
 
     public function get()
     {
-        if (!$this->name) {
+        if (!$this->id) {
             \settype($null, \gettype($this->default));
-            
+
             return $null;
         }
 
-        return \get_theme_mod($this->name, $this->default);
+        return \get_theme_mod($this->id, $this->default);
     }
 
     public function update($newValue): bool
     {
-        if (!$this->name) {
+        if (!$this->id) {
             return false;
         }
 
-        return \set_theme_mod($this->name, $newValue);
+        return \set_theme_mod($this->id, $newValue);
     }
 
     public function delete()
     {
-        if (!$this->name) {
+        if (!$this->id) {
             return;
         }
 
-        \remove_theme_mod($this->name);
+        \remove_theme_mod($this->id);
     }
 }

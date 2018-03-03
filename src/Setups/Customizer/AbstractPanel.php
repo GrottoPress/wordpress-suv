@@ -9,7 +9,7 @@ use WP_Customize_Manager as WPCustomizer;
 abstract class AbstractPanel
 {
     use GetterTrait;
-    
+
     /**
      * @var AbstractCustomizer
      */
@@ -18,7 +18,7 @@ abstract class AbstractPanel
     /**
      * @var string
      */
-    protected $name;
+    protected $id;
 
     /**
      * @var array
@@ -40,9 +40,9 @@ abstract class AbstractPanel
         return $this->customizer;
     }
 
-    protected function getName(): string
+    protected function getID(): string
     {
-        return $this->name;
+        return $this->id;
     }
 
     /**
@@ -59,11 +59,11 @@ abstract class AbstractPanel
      */
     public function add(WPCustomizer $WPCustomizer)
     {
-        if (!$this->name) {
+        if (!$this->id) {
             return;
         }
-        
-        $WPCustomizer->add_panel($this->name, $this->args);
+
+        $WPCustomizer->add_panel($this->id, $this->args);
 
         foreach ($this->sections as $section) {
             $section->add($WPCustomizer);
@@ -72,10 +72,10 @@ abstract class AbstractPanel
 
     public function remove(WPCustomizer $WPCustomizer)
     {
-        if (!$this->name) {
+        if (!$this->id) {
             return;
         }
-        
-        $WPCustomizer->remove_panel($this->name);
+
+        $WPCustomizer->remove_panel($this->id);
     }
 }

@@ -18,7 +18,7 @@ abstract class AbstractSetting
     /**
      * @var string
      */
-    protected $name;
+    protected $id;
 
     /**
      * @var array
@@ -35,28 +35,28 @@ abstract class AbstractSetting
         $this->section = $section;
     }
 
-    protected function getName(): string
+    protected function getID(): string
     {
-        return $this->name;
+        return $this->id;
     }
 
     public function add(WPCustomizer $WPCustomizer)
     {
-        if (!$this->name) {
+        if (!$this->id) {
             return;
         }
 
-        $WPCustomizer->add_setting($this->name, $this->args);
-        $WPCustomizer->add_control($this->name, $this->control);
+        $WPCustomizer->add_setting($this->id, $this->args);
+        $WPCustomizer->add_control($this->id, $this->control);
     }
 
     public function remove(WPCustomizer $WPCustomizer)
     {
-        if (!$this->name) {
+        if (!$this->id) {
             return;
         }
 
-        $WPCustomizer->remove_setting($this->name);
-        $WPCustomizer->remove_control($this->name);
+        $WPCustomizer->remove_setting($this->id);
+        $WPCustomizer->remove_control($this->id);
     }
 }
