@@ -3,22 +3,17 @@ declare (strict_types = 1);
 
 namespace GrottoPress\WordPress\SUV\Setups\Customizer;
 
-use GrottoPress\Getter\GetterTrait;
+use GrottoPress\WordPress\SUV\IdentityTrait;
 use WP_Customize_Manager as WPCustomizer;
 
 abstract class AbstractSection
 {
-    use GetterTrait;
+    use IdentityTrait;
 
     /**
      * @var AbstractCustomizer
      */
     protected $customizer;
-
-    /**
-     * @var string
-     */
-    protected $id;
 
     /**
      * @var array
@@ -38,11 +33,6 @@ abstract class AbstractSection
     final protected function getCustomizer(): AbstractCustomizer
     {
         return $this->customizer;
-    }
-
-    protected function getID(): string
-    {
-        return $this->id;
     }
 
     /**

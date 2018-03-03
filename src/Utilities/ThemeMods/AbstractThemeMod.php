@@ -3,26 +3,16 @@ declare (strict_types = 1);
 
 namespace GrottoPress\WordPress\SUV\Utilities\ThemeMods;
 
-use GrottoPress\Getter\GetterTrait;
+use GrottoPress\WordPress\SUV\IdentityTrait;
 
 abstract class AbstractThemeMod
 {
-    use GetterTrait;
-
-    /**
-     * @var string
-     */
-    protected $id;
+    use IdentityTrait;
 
     /**
      * @var mixed
      */
     protected $default;
-
-    protected function getID(): string
-    {
-        return $this->id;
-    }
 
     protected function getDefault()
     {

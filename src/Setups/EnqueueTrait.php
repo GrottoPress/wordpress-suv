@@ -3,17 +3,11 @@ declare (strict_types = 1);
 
 namespace GrottoPress\WordPress\SUV\Setups;
 
+use GrottoPress\WordPress\SUV\IdentityTrait;
+
 trait EnqueueTrait
 {
-    /**
-     * @var string
-     */
-    protected $id;
-
-    protected function getID(): string
-    {
-        return $this->id;
-    }
+    use IdentityTrait;
 
     public function run()
     {
