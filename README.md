@@ -147,7 +147,7 @@ final class MyPlugin extends AbstractPlugin
 ```php
 // @ wp-content/plugins/my-plugin/app/libraries/Setups/Footer.php
 
-<?php 
+<?php
 declare (strict_types = 1);
 
 namespace Vendor\MyPlugin\Setups;
@@ -180,7 +180,7 @@ You may file utility classes in `app/libraries/Utilities/`. Utility classes do n
 ```php
 // @ wp-content/plugins/my-plugin/app/libraries/Utilities/Utilities.php
 
-<?php 
+<?php
 declare (strict_types = 1);
 
 namespace Vendor\MyPlugin\Utilities;
@@ -198,7 +198,7 @@ class Utilities
      * @var MyPlugin
      */
     private $app;
-    
+
     /**
      * @var Text
      */
@@ -228,7 +228,7 @@ class Utilities
 ```php
 // @ wp-content/plugins/my-plugin/app/libraries/Utilities/Text.php
 
-<?php 
+<?php
 declare (strict_types = 1);
 
 namespace Vendor\MyPlugin\Utilities;
