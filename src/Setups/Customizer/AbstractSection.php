@@ -30,7 +30,7 @@ abstract class AbstractSection
         $this->customizer = $customizer;
     }
 
-    final protected function getCustomizer(): AbstractCustomizer
+    protected function getCustomizer(): AbstractCustomizer
     {
         return $this->customizer;
     }
