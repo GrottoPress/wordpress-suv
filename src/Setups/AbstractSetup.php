@@ -20,7 +20,7 @@ abstract class AbstractSetup
         $this->app = $app;
     }
 
-    final protected function getApp(): AbstractApp
+    protected function getApp(): AbstractApp
     {
         return $this->app;
     }
