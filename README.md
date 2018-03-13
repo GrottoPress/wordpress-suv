@@ -333,10 +333,10 @@ require __DIR__.'/vendor/autoload.php';
 
 ## Building a theme?
 
-If you're looking to build a theme using **SUV**, you should check out [Jentil](https://jentil.grottopress.com).
+If you're looking to build a theme using **SUV**, you should check out [Jentil](https://www.grottopress.com/jentil/).
 
 Jentil is a framework for rapid WordPress theme development, built using the **SUV** architecture.
 
 It comes with numerous features, and includes a loader that loads templates (eg: `page.php`, `index.php`, `single.php` etc) **only** from the `app/templates` directory, and partials (eg: `header.php`, `footer.php`, `sidebar.php`) from the `app/partials` directory.
 
-[Check it out](https://jentil.grottopress.com)...
+[Check it out](https://www.grottopress.com/jentil/)...
