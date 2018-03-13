@@ -8,9 +8,9 @@ This package is a scaffold for implementing **SUV**.
 
 It emphasises an object oriented approach to writing WordPress plugins and themes, and provides for a cleaner, more organised code base.
 
-**Setups**: Includes all classes that modify the page life cycle in any way, by means of action and filter hooks.
+**Setups**: Includes all classes with methods that interact directly with WordPress, usually by means of action and filter hooks. They form the core of the plugin or theme you are developing.
 
-**Utilities**: Utilities are classes that help the setups fulfill their mission.
+**Utilities**: Utilities are classes with methods that help the setups and views accomplish their goals.
 
 **Views**: Views are templates and partials to be loaded by the theme/plugin or WordPress.
 
@@ -46,20 +46,21 @@ Set up your own app's directory structure as follows:
 .
 ├── app/
 │   ├── libraries/
-│   │   ├── MyApp.php
 │   │   ├── Setups/
-│   │   └── Utilities/
+│   │   ├── Utilities/
+│   │   └── MyApp.php
 │   ├── partials/
 │   ├── templates/
 │   └── helpers.php
 ├── assets/
 │   ├── scritps/
 │   ├── styles/
-│   └── vendor/ (copy production assets from node_modules/ here)
+│   └── vendor/ (copy raw vendor assets you'd need, eg: scss files, from node_modules/ here)
 ├── bin/
 ├── dist/
 │   ├── scritps/
-│   └── styles/
+│   ├── styles/
+│   └── vendor/ (copy/build vendor assets you'd need in prod. here)
 ├── languages/
 ├── node_modules/
 ├── tests/
@@ -104,7 +105,7 @@ composer require grottopress/wordpress-suv
 
 ## Sample WordPress plugin
 
-Let's write a sample WordPress plugin, shall we?
+Let's write a sample WordPress plugin using SUV, shall we?
 
 ```php
 // @ wp-content/plugins/my-plugin/app/libraries/MyPlugin.php
@@ -175,7 +176,7 @@ final class Footer extends AbstractSetup
 }
 ```
 
-You may file utility classes in `app/libraries/Utilities/`. Utility classes do not contain calls to `\add_action()`, `\remove_action()`, `\add_filter()` or `\remove_filter()`, but contain functionality that setup classes can use to fulfill their mission.
+You may file utility classes in `app/libraries/Utilities/`. Utility classes do not interact directly with WordPress, but contain functionality that setup classes and views can use to accomplish their goal.
 
 ```php
 // @ wp-content/plugins/my-plugin/app/libraries/Utilities/Utilities.php
@@ -252,8 +253,6 @@ class Text
     }
 
     /**
-     * Useless text
-     *
      * This is obviously a very trivial example. We could
      * have just printed this directly in the footer setup's
      * `renderUselessText()` method.
@@ -302,7 +301,6 @@ Now, to conclude with our plugin's bootstrap:
 // @ wp-content/plugins/my-plugin/my-plugin.php
 
 <?php
-
 /**
  * @wordpress-plugin
  * Plugin Name: My Plugin
@@ -316,7 +314,6 @@ Now, to conclude with our plugin's bootstrap:
  * Text Domain: my-plugin
  * Domain Path: /languages
  */
-
 declare (strict_types = 1);
 
 !\defined('WPINC') && die;
