@@ -115,8 +115,6 @@ declare (strict_types = 1);
 
 namespace Vendor\MyPlugin;
 
-!\defined('WPINC') && die;
-
 use Vendor\MyPlugin\Utilities\Utilities;
 use GrottoPress\WordPress\SUV\AbstractPlugin;
 
@@ -153,8 +151,6 @@ declare (strict_types = 1);
 
 namespace Vendor\MyPlugin\Setups;
 
-!\defined('WPINC') && die;
-
 use GrottoPress\WordPress\SUV\Setups\AbstractSetup;
 
 final class Footer extends AbstractSetup
@@ -185,8 +181,6 @@ You may file utility classes in `app/libraries/Utilities/`. Utility classes do n
 declare (strict_types = 1);
 
 namespace Vendor\MyPlugin\Utilities;
-
-!\defined('WPINC') && die;
 
 use Vendor\MyPlugin\MyPlugin;
 use GrottoPress\Getter\GetterTrait;
@@ -234,8 +228,6 @@ declare (strict_types = 1);
 
 namespace Vendor\MyPlugin\Utilities;
 
-!\defined('WPINC') && die;
-
 use GrottoPress\Getter\GetterTrait;
 
 class Text
@@ -277,8 +269,6 @@ Let's create a helper to do this in `app/helpers.php`.
 <?php
 declare (strict_types = 1);
 
-!\defined('WPINC') && die;
-
 use Vendor\MyPlugin\MyPlugin;
 
 function MyPlugin(): MyPlugin
@@ -315,8 +305,6 @@ Now, to conclude with our plugin's bootstrap:
  * Domain Path: /languages
  */
 declare (strict_types = 1);
-
-!\defined('WPINC') && die;
 
 require __DIR__.'/vendor/autoload.php';
 
