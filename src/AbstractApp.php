@@ -8,7 +8,8 @@ use FlorianWolters\Component\Util\Singleton\SingletonTrait;
 
 abstract class AbstractApp
 {
-    use SingletonTrait, GetterTrait;
+    use GetterTrait;
+    use SingletonTrait;
 
     /**
      * @var Setups\AbstractSetup[int]
