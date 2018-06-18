@@ -11,7 +11,7 @@ abstract class AbstractApp
     use SingletonTrait, GetterTrait;
 
     /**
-     * @var Setups\AbstractSetup[]
+     * @var Setups\AbstractSetup[int]
      */
     protected $setups = [];
 
@@ -20,7 +20,7 @@ abstract class AbstractApp
     }
 
     /**
-     * @return Setups\AbstractSetup[]
+     * @return Setups\AbstractSetup[int]
      */
     protected function getSetups(): array
     {
