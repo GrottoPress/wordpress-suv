@@ -1,12 +1,8 @@
 # WordPress SUV
 
-**SUV** is our own architecture for building WordPress themes and plugins at [*GrottoPress*](https://www.grottopress.com).
+**SUV** is our own architecture for building WordPress themes and plugins at [*GrottoPress*](https://www.grottopress.com). This package is a scaffold for implementing **SUV**.
 
-This package is a scaffold for implementing **SUV**.
-
-**SUV** is short for *Setups-Utilities-Views*, which... well... organises code into three groups: Setups, Utilities, and Views.
-
-It emphasises an object oriented approach to writing WordPress plugins and themes, and provides for a cleaner, more organised code base.
+**SUV** is short for *Setups-Utilities-Views*. It emphasises an object oriented approach to writing WordPress plugins and themes, and provides for a cleaner, more organised code base.
 
 **Setups**: Includes all classes with methods that interact directly with WordPress, usually by means of action and filter hooks. They form the core of the plugin or theme you are developing.
 
@@ -46,8 +42,9 @@ Set up your own app's directory structure as follows:
 .
 ├── app/
 │   ├── libraries/
-│   │   ├── Setups/
-│   │   ├── Utilities/
+│   │   ├── MyApp/
+│   │   │   ├── Setups/
+│   │   │   └── Utilities/
 │   │   └── MyApp.php
 │   ├── partials/
 │   ├── templates/
@@ -85,14 +82,20 @@ Not all directories/files may apply in your case. Remove whichever you do not ne
 Your `composer.json` autoload config:
 
 ```json
-"autoload": {
+{
+  // ...
+
+  "autoload": {
     "psr-4": {
-        "Vendor\\MyApp\\": "app/libraries/"
+      "Vendor\\": "app/libraries/"
     },
     "files": [
-        "app/helpers.php"
+      "app/helpers.php"
     ]
-},
+  }
+
+  // ...
+}
 ```
 
 ### Require SUV
@@ -113,9 +116,10 @@ Let's write a sample WordPress plugin using SUV, shall we?
 <?php
 declare (strict_types = 1);
 
-namespace Vendor\MyPlugin;
+namespace Vendor;
 
-use Vendor\MyPlugin\Utilities\Utilities;
+use Vendor\MyPlugin\Setups;
+use Vendor\MyPlugin\Utilities;
 use GrottoPress\WordPress\SUV\AbstractPlugin;
 
 final class MyPlugin extends AbstractPlugin
@@ -140,11 +144,10 @@ final class MyPlugin extends AbstractPlugin
         return $this->utilities;
     }
 }
-
 ```
 
 ```php
-// @ wp-content/plugins/my-plugin/app/libraries/Setups/Footer.php
+// @ wp-content/plugins/my-plugin/app/libraries/MyPlugin/Setups/Footer.php
 
 <?php
 declare (strict_types = 1);
@@ -175,14 +178,14 @@ final class Footer extends AbstractSetup
 You may file utility classes in `app/libraries/Utilities/`. Utility classes do not interact directly with WordPress, but contain functionality that setup classes and views can use to accomplish their goal.
 
 ```php
-// @ wp-content/plugins/my-plugin/app/libraries/Utilities/Utilities.php
+// @ wp-content/plugins/my-plugin/app/libraries/MyPlugin/Utilities.php
 
 <?php
 declare (strict_types = 1);
 
-namespace Vendor\MyPlugin\Utilities;
+namespace Vendor\MyPlugin;
 
-use Vendor\MyPlugin\MyPlugin;
+use Vendor\MyPlugin;
 use GrottoPress\Getter\GetterTrait;
 
 class Utilities
@@ -195,7 +198,7 @@ class Utilities
     private $app;
 
     /**
-     * @var Text
+     * @var Utilities\Text
      */
     private $text = null;
 
@@ -209,10 +212,10 @@ class Utilities
         return $this->app;
     }
 
-    private function getText(): Text
+    private function getText(): Utilities\Text
     {
         if (null === $this->text) {
-            $this->text = new Text($this);
+            $this->text = new Utilities\Text($this);
         }
 
         return $this->text;
@@ -221,13 +224,14 @@ class Utilities
 ```
 
 ```php
-// @ wp-content/plugins/my-plugin/app/libraries/Utilities/Text.php
+// @ wp-content/plugins/my-plugin/app/libraries/MyPlugin/Utilities/Text.php
 
 <?php
 declare (strict_types = 1);
 
 namespace Vendor\MyPlugin\Utilities;
 
+use Vendor\MyPlugin\Utilities;
 use GrottoPress\Getter\GetterTrait;
 
 class Text
@@ -269,7 +273,7 @@ Let's create a helper to do this in `app/helpers.php`.
 <?php
 declare (strict_types = 1);
 
-use Vendor\MyPlugin\MyPlugin;
+use Vendor\MyPlugin;
 
 function MyPlugin(): MyPlugin
 {
