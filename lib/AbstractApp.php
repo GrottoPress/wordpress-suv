@@ -3,6 +3,7 @@ declare (strict_types = 1);
 
 namespace GrottoPress\WordPress\SUV;
 
+use GrottoPress\WordPress\SUV\Setups\AbstractSetup;
 use GrottoPress\Getter\GetterTrait;
 use FlorianWolters\Component\Util\Singleton\SingletonTrait;
 
@@ -12,7 +13,7 @@ abstract class AbstractApp
     use SingletonTrait;
 
     /**
-     * @var Setups\AbstractSetup[string]
+     * @var AbstractSetup[string]
      */
     protected $setups = [];
 
@@ -21,7 +22,7 @@ abstract class AbstractApp
     }
 
     /**
-     * @return Setups\AbstractSetup[string]
+     * @return AbstractSetup[string]
      */
     protected function getSetups(): array
     {
@@ -30,8 +31,11 @@ abstract class AbstractApp
 
     public function run()
     {
-        foreach ($this->setups as $setup) {
-            $setup->run();
-        }
+        \array_walk(
+            $this->setups,
+            function (AbstractSetup $setup, string $key) {
+                $setup->run();
+            }
+        );
     }
 }
