@@ -44,7 +44,8 @@ Set up your own app's directory structure as follows:
 │   ├── libraries/
 │   │   ├── MyApp/
 │   │   │   ├── Setups/
-│   │   │   └── Utilities/
+│   │   │   ├── Utilities/
+│   │   │   └── Utilities.php
 │   │   └── MyApp.php
 │   ├── partials/
 │   ├── templates/
