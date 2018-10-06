@@ -84,7 +84,7 @@ Your `composer.json` autoload config:
 
 ```json
 {
-  // ...
+
 
   "autoload": {
     "psr-4": {
@@ -95,7 +95,7 @@ Your `composer.json` autoload config:
     ]
   }
 
-  // ...
+
 }
 ```
 
@@ -128,7 +128,7 @@ final class MyPlugin extends AbstractPlugin
     /**
      * @var Utilities
      */
-    private $utilities = null;
+    private $utilities;
 
     protected function __construct()
     {
@@ -138,9 +138,7 @@ final class MyPlugin extends AbstractPlugin
 
     protected function getUtilities(): Utilities
     {
-        if (null === $this->utilities) {
-            $this->utilities = new Utilities($this);
-        }
+        $this->utilities = $this->utilities ?: new Utilities($this);
 
         return $this->utilities;
     }
@@ -201,7 +199,7 @@ class Utilities
     /**
      * @var Utilities\Text
      */
-    private $text = null;
+    private $text;
 
     public function __construct(MyPlugin $plugin)
     {
@@ -215,9 +213,7 @@ class Utilities
 
     private function getText(): Utilities\Text
     {
-        if (null === $this->text) {
-            $this->text = new Utilities\Text($this);
-        }
+        $this->text = $this->text ?: new Utilities\Text($this);
 
         return $this->text;
     }
