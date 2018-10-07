@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 - Rename `LICENSE.md` TO `LICENSE`
+- Revert "Rename `src/` directory to `lib/`"
 
 ## 0.5.0 - 2018-09-26
 
