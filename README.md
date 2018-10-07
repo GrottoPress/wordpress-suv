@@ -4,9 +4,11 @@
 
 **SUV** is short for *Setups-Utilities-Views*. It emphasises an object oriented approach to writing WordPress plugins and themes, and provides for a cleaner, more organised code base.
 
-**Setups**: Includes all classes with methods that interact directly with WordPress, usually by means of action and filter hooks. They form the core of the plugin or theme you are developing.
+SUV employs object composition extensively, and makes full use of the express power of core WordPress' event-driven architecture.
 
-**Utilities**: Utilities are classes with methods that help the setups and views accomplish their goals.
+**Setups**: Includes all objects with methods that interact directly with WordPress, usually by means of action and filter hooks.
+
+**Utilities**: Utilities are objects with methods that are needed by setups and views to accomplish their goals.
 
 **Views**: Views are templates and partials to be loaded by the theme/plugin or WordPress.
 
@@ -29,6 +31,16 @@
 Code should comply with [PSR-1](http://www.php-fig.org/psr/psr-1/), [PSR-2](http://www.php-fig.org/psr/psr-2/) and [PSR-4](http://www.php-fig.org/psr/psr-4/), at least.
 
 You are strongly encouraged to use strict typing in PHP 7, and specify types for function/method arguments and return values.
+
+As much as possible:
+
+- Aim for immutable objects
+- Prefer declarative syntax
+- Don't inherit concrete classes
+- Avoid static methods
+- Do away with *fancy* design patterns
+
+> *Complex* creates the illusion of *smart*. Don't fall for this. "**Keep it simple**".
 
 ## Usage
 
