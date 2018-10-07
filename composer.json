@@ -37,6 +37,6 @@
     ]
   },
   "autoload": {
-    "psr-4": { "GrottoPress\\WordPress\\SUV\\": "lib/" }
+    "psr-4": { "GrottoPress\\WordPress\\SUV\\": "src/" }
   }
 }
