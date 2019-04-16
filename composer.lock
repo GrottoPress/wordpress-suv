@@ -148,16 +148,16 @@
         },
         {
             "name": "grottopress/getter",
-            "version": "0.3.4",
+            "version": "0.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrottoPress/getter.git",
-                "reference": "b91517ea228d2cbae25a0a243d9194c5a69bdad4"
+                "reference": "3a7427e30fd7dc3275a123994b8d34c093a47fa9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrottoPress/getter/zipball/b91517ea228d2cbae25a0a243d9194c5a69bdad4",
-                "reference": "b91517ea228d2cbae25a0a243d9194c5a69bdad4",
+                "url": "https://api.github.com/repos/GrottoPress/getter/zipball/3a7427e30fd7dc3275a123994b8d34c093a47fa9",
+                "reference": "3a7427e30fd7dc3275a123994b8d34c093a47fa9",
                 "shasum": ""
             },
             "require": {
@@ -193,7 +193,7 @@
                 "OOP",
                 "getter"
             ],
-            "time": "2018-10-06T15:00:26+00:00"
+            "time": "2019-04-16T20:20:11+00:00"
         }
     ],
     "packages-dev": [],
