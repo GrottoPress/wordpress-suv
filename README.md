@@ -40,8 +40,6 @@ As much as possible:
 - Avoid static methods
 - Do away with *fancy* design patterns
 
-> *Complex* creates the illusion of *smart*. Don't fall for this. "**Keep it simple**".
-
 ## Usage
 
 **Note:** From here on, *app* refers to your theme or plugin.
