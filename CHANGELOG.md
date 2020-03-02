@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Add scripts (JavaScript) setup
 - Add sidebars setup
 - Add styles setup
+- Add thumbnails setup
 
 ## [0.6.2] - 2020-02-08
 
