@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Add metaboxes setup
 - Add post type templates setup
 - Add scripts (JavaScript) setup
+- Add sidebars setup
 
 ## [0.6.2] - 2020-02-08
 
