@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 - Add theme customizer
+- Add optionizer (for setting up options)
 - Add menus setup
 - Add metaboxes setup
 - Add post type templates setup
