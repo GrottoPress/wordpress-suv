@@ -8,7 +8,7 @@ use WP_Customize_Manager as WPCustomizer;
 
 abstract class AbstractSetting
 {
-    use IdentityTrait;
+    use GetterTrait;
 
     /**
      * @var AbstractCustomizer
