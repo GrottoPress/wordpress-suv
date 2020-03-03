@@ -5,7 +5,7 @@ namespace GrottoPress\WordPress\SUV\Utilities\ThemeMods;
 
 use GrottoPress\Getter\GetterTrait;
 
-class AbstractThemeMod
+abstract class AbstractThemeMod
 {
     use GetterTrait;
 

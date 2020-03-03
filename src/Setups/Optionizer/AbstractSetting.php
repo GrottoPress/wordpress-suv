@@ -1,7 +1,7 @@
 <?php
 declare (strict_types = 1);
 
-namespace GrottoPress\SmartFeaturedImage\Setups\Optionizer;
+namespace GrottoPress\WordPress\SUV\Setups\Optionizer;
 
 use GrottoPress\Getter\GetterTrait;
 
