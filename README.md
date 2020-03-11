@@ -167,16 +167,16 @@ final class Footer extends AbstractSetup
 {
     public function run()
     {
-        \add_action('wp_footer', [$this, 'renderUselessText']);
+        \add_action('wp_footer', [$this, 'renderText']);
     }
 
     /**
      * @action wp_footer
      */
-    public function renderUselessText()
+    public function renderText()
     {
         echo '<div class="useless-text">'.
-            $this->app->utilities->text->uselessText().
+            $this->app->utilities->text->render().
         '</div>';
     }
 }
@@ -254,12 +254,12 @@ class Text
     /**
      * This is obviously a very trivial example. We could
      * have just printed this directly in the footer setup's
-     * `renderUselessText()` method.
+     * `renderText()` method.
      *
      * It is done here only for the purpose of demonstration,
      * if you know what I mean.
      */
-    public function uselessText(): string
+    public function render(): string
     {
         return \esc_html__('Useless text', 'my-plugin');
     }
@@ -288,7 +288,7 @@ Other plugins and themes now have access to the singleton plugin instance, and c
 
 ```php
 \add_action('init', function () {
-    \remove_action('wp_footer', [\MyPlugin()->setups['Footer'], 'renderUselessText']);
+    \remove_action('wp_footer', [\MyPlugin()->setups['Footer'], 'renderText']);
 });
 ```
 
