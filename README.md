@@ -23,6 +23,7 @@ SUV employs object composition extensively, and makes full use of the express po
 - [Gulp](https://gulpjs.com/) for building assets
 - [Sass/SCSS](http://sass-lang.com/) for writing and compiling CSS
 - [Typescript](http://www.typescriptlang.org/) for JS.
+- [Rollup JS](https://rollupjs.org) for JS module bundling
 - [WP browser](https://packagist.org/packages/lucatume/wp-browser) and [function mocker](https://packagist.org/packages/lucatume/function-mocker) for tests
 - [Travis CI](https://travis-ci.org/) for CI/CD
 
