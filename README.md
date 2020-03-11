@@ -23,6 +23,7 @@ SUV employs object composition extensively, and makes full use of the express po
 - [Gulp](https://gulpjs.com/) for building assets
 - [Sass/SCSS](http://sass-lang.com/) for writing and compiling CSS
 - [Typescript](http://www.typescriptlang.org/) for JS.
+- [Rollup JS](https://rollupjs.org) for JS module bundling
 - [WP browser](https://packagist.org/packages/lucatume/wp-browser) and [function mocker](https://packagist.org/packages/lucatume/function-mocker) for tests
 - [Travis CI](https://travis-ci.org/) for CI/CD
 
@@ -148,9 +149,7 @@ final class MyPlugin extends AbstractPlugin
 
     protected function getUtilities(): Utilities
     {
-        $this->utilities = $this->utilities ?: new Utilities($this);
-
-        return $this->utilities;
+        return $this->utilities = $this->utilities ?: new Utilities($this);
     }
 }
 ```
@@ -169,16 +168,16 @@ final class Footer extends AbstractSetup
 {
     public function run()
     {
-        \add_action('wp_footer', [$this, 'renderUselessText']);
+        \add_action('wp_footer', [$this, 'renderText']);
     }
 
     /**
      * @action wp_footer
      */
-    public function renderUselessText()
+    public function renderText()
     {
         echo '<div class="useless-text">'.
-            $this->app->utilities->text->uselessText().
+            $this->app->utilities->text->render().
         '</div>';
     }
 }
@@ -223,9 +222,7 @@ class Utilities
 
     private function getText(): Utilities\Text
     {
-        $this->text = $this->text ?: new Utilities\Text($this);
-
-        return $this->text;
+        return $this->text = $this->text ?: new Utilities\Text($this);
     }
 }
 ```
@@ -258,12 +255,12 @@ class Text
     /**
      * This is obviously a very trivial example. We could
      * have just printed this directly in the footer setup's
-     * `renderUselessText()` method.
+     * `renderText()` method.
      *
      * It is done here only for the purpose of demonstration,
      * if you know what I mean.
      */
-    public function uselessText(): string
+    public function render(): string
     {
         return \esc_html__('Useless text', 'my-plugin');
     }
@@ -292,7 +289,7 @@ Other plugins and themes now have access to the singleton plugin instance, and c
 
 ```php
 \add_action('init', function () {
-    \remove_action('wp_footer', [\MyPlugin()->setups['Footer'], 'renderUselessText']);
+    \remove_action('wp_footer', [\MyPlugin()->setups['Footer'], 'renderText']);
 });
 ```
 
@@ -327,6 +324,12 @@ require __DIR__.'/vendor/autoload.php';
 }, 0);
 ```
 
+## Building a plugin?
+
+We created a [WordPress plugin scaffold](https://github.com/GrottoPress/wordpress-plugin) that uses SUV. It sets up the most common stuff for you to dive straight into code.
+
+You should [check it out](https://github.com/GrottoPress/wordpress-plugin) &raquo;
+
 ## Building a theme?
 
 If you're looking to build a theme using **SUV**, you should check out [Jentil](https://www.grottopress.com/jentil/).
@@ -335,4 +338,4 @@ Jentil is a framework for rapid WordPress theme development, built using the **S
 
 It comes with numerous features, and includes a loader that loads templates (eg: `page.php`, `index.php`, `single.php` etc) **only** from the `app/templates` directory, and partials (eg: `header.php`, `footer.php`, `sidebar.php`) from the `app/partials` directory.
 
-[Check it out](https://www.grottopress.com/jentil/)...
+[Check it out](https://www.grottopress.com/jentil/) &raquo;
