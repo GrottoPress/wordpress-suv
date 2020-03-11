@@ -49,6 +49,11 @@ abstract class AbstractPage
      */
     protected $sections = [];
 
+    /**
+     * @var string
+     */
+    protected $hookSuffix = '';
+
     public function __construct(AbstractOptionizer $optionizer)
     {
         $this->optionizer = $optionizer;
@@ -116,7 +121,7 @@ abstract class AbstractPage
             return;
         }
 
-        \add_options_page(
+        $this->hookSuffix = \add_options_page(
             $this->title,
             $this->label,
             $this->capability,

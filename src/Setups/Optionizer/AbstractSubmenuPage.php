@@ -32,7 +32,7 @@ abstract class AbstractSubmenuPage extends AbstractPage
             return;
         }
 
-        \add_submenu_page(
+        $this->hookSuffix = \add_submenu_page(
             $this->parent,
             $this->title,
             $this->label,

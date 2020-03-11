@@ -32,7 +32,7 @@ abstract class AbstractMenuPage extends AbstractPage
             return;
         }
 
-        \add_menu_page(
+        $this->hookSuffix = \add_menu_page(
             $this->title,
             $this->label,
             $this->capability,

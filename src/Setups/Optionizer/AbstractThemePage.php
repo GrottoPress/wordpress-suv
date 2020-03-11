@@ -19,7 +19,7 @@ abstract class AbstractThemePage extends AbstractPage
             return;
         }
 
-        \add_theme_page(
+        $this->hookSuffix = \add_theme_page(
             $this->title,
             $this->label,
             $this->capability,
