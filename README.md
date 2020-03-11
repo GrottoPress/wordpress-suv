@@ -148,9 +148,7 @@ final class MyPlugin extends AbstractPlugin
 
     protected function getUtilities(): Utilities
     {
-        $this->utilities = $this->utilities ?: new Utilities($this);
-
-        return $this->utilities;
+        return $this->utilities = $this->utilities ?: new Utilities($this);
     }
 }
 ```
@@ -223,9 +221,7 @@ class Utilities
 
     private function getText(): Utilities\Text
     {
-        $this->text = $this->text ?: new Utilities\Text($this);
-
-        return $this->text;
+        return $this->text = $this->text ?: new Utilities\Text($this);
     }
 }
 ```
