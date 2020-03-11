@@ -24,6 +24,9 @@ abstract class AbstractOption
         return $this->id;
     }
 
+    /**
+     * @return mixed
+     */
     protected function getDefault()
     {
         return $this->default;
