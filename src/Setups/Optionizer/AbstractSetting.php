@@ -73,9 +73,7 @@ abstract class AbstractSetting
             return;
         }
 
-        if (false === \get_option($this->id)) {
-            \add_option($this->id);
-        }
+        \add_option($this->id);
 
         \register_setting($this->group, $this->id, $this->args);
     }
