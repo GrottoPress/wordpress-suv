@@ -74,7 +74,7 @@ abstract class AbstractOptionizer extends AbstractSetup
      * `$this->settings`, `$this->fields` HERE, in the child class.
      * Doing so in the constructor may be too early; it mighty not work.
      *
-     * @action admin_init
+     * @action admin_menu
      */
     public function add()
     {
