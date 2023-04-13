@@ -346,7 +346,7 @@ Run tests with `composer run test`.
 
 ## Contributing
 
-1. [Fork it](https://github.com/GrottoPress/wordpress-posts/fork)
+1. [Fork it](https://github.com/GrottoPress/wordpress-suv/fork)
 1. Switch to the `master` branch: `git checkout master`
 1. Create your feature branch: `git checkout -b my-new-feature`
 1. Make your changes, updating changelog and documentation as appropriate.
