@@ -3,14 +3,20 @@ declare (strict_types = 1);
 
 namespace GrottoPress\WordPress\SUV;
 
-use GrottoPress\WordPress\SUV\Setups\AbstractSetup;
+use Exception;
 use GrottoPress\Getter\GetterTrait;
-use FlorianWolters\Component\Util\Singleton\SingletonTrait;
+use GrottoPress\WordPress\SUV\Setups\AbstractSetup;
 
 abstract class AbstractApp
 {
     use GetterTrait;
-    use SingletonTrait;
+
+    /**
+     * @static
+     *
+     * @var self[]
+     */
+    private static $instances = [];
 
     /**
      * @var AbstractSetup[string]
@@ -19,6 +25,15 @@ abstract class AbstractApp
 
     protected function __construct()
     {
+    }
+
+    protected function __clone()
+    {
+    }
+
+    public function __wakeup()
+    {
+        throw new Exception('Cannot unserialize singleton');
     }
 
     /**
@@ -37,5 +52,16 @@ abstract class AbstractApp
                 $setup->run();
             }
         );
+    }
+
+    final public static function getInstance()
+    {
+        $class = static::class;
+
+        if (!isset(self::$instances[$class])) {
+            self::$instances[$class] = new $class;
+        }
+
+        return self::$instances[$class];
     }
 }
