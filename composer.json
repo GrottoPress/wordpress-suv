@@ -27,14 +27,6 @@
     "php": ">=7.0",
     "grottopress/getter": "^0.4"
   },
-  "scripts": {
-    "post-install-cmd": [
-      "chmod +x ./bin/*"
-    ],
-    "release": [
-      "./bin/release"
-    ]
-  },
   "autoload": {
     "psr-4": { "GrottoPress\\WordPress\\SUV\\": "src/" }
   }
