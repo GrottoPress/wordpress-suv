@@ -17,16 +17,6 @@ SUV employs object composition extensively, and makes full use of the express po
 - PHP >= 7.0
 - [Composer](https://getcomposer.org)
 
-## Recommendations
-
-- [NPM](https://www.npmjs.com/) for managing asset dependencies
-- [Gulp](https://gulpjs.com/) for building assets
-- [Sass/SCSS](http://sass-lang.com/) for writing and compiling CSS
-- [Typescript](http://www.typescriptlang.org/) for JS.
-- [Rollup JS](https://rollupjs.org) for JS module bundling
-- [WP browser](https://packagist.org/packages/lucatume/wp-browser) and [function mocker](https://packagist.org/packages/lucatume/function-mocker) for tests
-- [Travis CI](https://travis-ci.org/) for CI/CD
-
 ## Code style
 
 Code should comply with [PSR-1](http://www.php-fig.org/psr/psr-1/), [PSR-2](http://www.php-fig.org/psr/psr-2/) and [PSR-4](http://www.php-fig.org/psr/psr-4/), at least.
@@ -52,39 +42,39 @@ Set up your own app's directory structure as follows:
 ```
 .
 ├── app/
-│   ├── libraries/
-│   │   ├── MyApp/
-│   │   │   ├── Setups/
-│   │   │   ├── Utilities/
-│   │   │   └── Utilities.php
-│   │   └── MyApp.php
-│   ├── partials/
-│   ├── templates/
-│   └── helpers.php
+│   ├── MyApp/
+│   │   ├── Setups/
+│   │   ├── Utilities/
+│   │   └── Utilities.php
+│   ├── helpers.php
+│   └── MyApp.php
 ├── assets/
-│   ├── scritps/
-│   ├── styles/
-│   └── vendor/ (copy raw vendor assets you'd need, eg: scss files, from node_modules/ here)
-├── bin/
+│   ├── css/
+│   └── js/
 ├── dist/
-│   ├── scritps/
-│   ├── styles/
-│   └── vendor/ (copy/build vendor assets you'd need in prod. here)
-├── languages/
+│   ├── css/
+│   └── js/
+├── lang/
 ├── node_modules/
+├── partials/
+├── templates/
 ├── tests/
 ├── vendor/
+├── .editorconfig
 ├── .gitignore
-├── .travis.yml
-├── <app-bootsrap>.php (functions.php or my-plugin.php)
 ├── CHANGELOG.md
+├── codeception.yml
 ├── composer.json
 ├── composer.lock
-├── gulpfile.js
-├── LICENSE.md
+├── <app-bootsrap>.php (functions.php or my-plugin.php)
+├── LICENSE
 ├── package.json
 ├── package-lock.json
-└── README.md
+├── postcss.config.js
+├── README.md
+├── tailwind.config.js
+├── tsconfig.json
+└── webpack.mix.js
 ```
 
 Not all directories/files may apply in your case. Remove whichever you do not need, and add whatever you require as necessary. Just keep the general concept in mind.
@@ -99,7 +89,7 @@ Your `composer.json` autoload config:
 
   "autoload": {
     "psr-4": {
-      "Vendor\\": "app/libraries/"
+      "Vendor\\": "app/"
     },
     "files": [
       "app/helpers.php"
@@ -123,7 +113,7 @@ composer require grottopress/wordpress-suv
 Let's write a sample WordPress plugin using SUV, shall we?
 
 ```php
-// @ wp-content/plugins/my-plugin/app/libraries/MyPlugin.php
+// @ wp-content/plugins/my-plugin/app/MyPlugin.php
 
 <?php
 declare (strict_types = 1);
@@ -155,7 +145,7 @@ final class MyPlugin extends AbstractPlugin
 ```
 
 ```php
-// @ wp-content/plugins/my-plugin/app/libraries/MyPlugin/Setups/Footer.php
+// @ wp-content/plugins/my-plugin/app/MyPlugin/Setups/Footer.php
 
 <?php
 declare (strict_types = 1);
@@ -183,10 +173,10 @@ final class Footer extends AbstractSetup
 }
 ```
 
-You may file utility classes in `app/libraries/Utilities/`. Utility classes do not interact directly with WordPress, but contain functionality that setup classes and views can use to accomplish their goal.
+You may file utility classes in `app/MyPlugin/Utilities/`. Utility classes do not interact directly with WordPress, but contain functionality that setup classes and views can use to accomplish their goal.
 
 ```php
-// @ wp-content/plugins/my-plugin/app/libraries/MyPlugin/Utilities.php
+// @ wp-content/plugins/my-plugin/app/MyPlugin/Utilities.php
 
 <?php
 declare (strict_types = 1);
@@ -228,7 +218,7 @@ class Utilities
 ```
 
 ```php
-// @ wp-content/plugins/my-plugin/app/libraries/MyPlugin/Utilities/Text.php
+// @ wp-content/plugins/my-plugin/app/MyPlugin/Utilities/Text.php
 
 <?php
 declare (strict_types = 1);
