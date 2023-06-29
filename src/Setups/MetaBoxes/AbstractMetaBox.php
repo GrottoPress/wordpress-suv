@@ -4,7 +4,6 @@ declare (strict_types = 1);
 namespace GrottoPress\WordPress\SUV\Setups\MetaBoxes;
 
 use GrottoPress\WordPress\SUV\Setups\AbstractSetup;
-use WP_Post;
 
 abstract class AbstractMetaBox extends AbstractSetup
 {
