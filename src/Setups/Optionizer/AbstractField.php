@@ -40,7 +40,7 @@ abstract class AbstractField
     protected $section = '';
 
     /**
-     * @var mixed[string]
+     * @var array<string, mixed>
      */
     protected $args = [];
 
@@ -85,7 +85,7 @@ abstract class AbstractField
     }
 
     /**
-     * @return mixed[string]
+     * @return array<string, mixed>
      */
     protected function getArgs(): array
     {

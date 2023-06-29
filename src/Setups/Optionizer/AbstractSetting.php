@@ -25,7 +25,7 @@ abstract class AbstractSetting
     protected $group;
 
     /**
-     * @var mixed[string]
+     * @var array<string, mixed>
      */
     protected $args;
 
@@ -55,7 +55,7 @@ abstract class AbstractSetting
     }
 
     /**
-     * @return mixed[string]
+     * @return array<string, mixed>
      */
     protected function getArgs(): array
     {

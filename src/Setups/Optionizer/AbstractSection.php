@@ -40,12 +40,12 @@ abstract class AbstractSection
     protected $capability = 'manage_options';
 
     /**
-     * @var AbstractSetting[string]
+     * @var array<string, AbstractSetting>
      */
     protected $settings = [];
 
     /**
-     * @var AbstractField[string]
+     * @var array<string, AbstractField>
      */
     protected $fields = [];
 
@@ -85,7 +85,7 @@ abstract class AbstractSection
     }
 
     /**
-     * @return AbstractSetting[string]
+     * @return array<string, AbstractSetting>
      */
     protected function getSettings(): array
     {
@@ -93,7 +93,7 @@ abstract class AbstractSection
     }
 
     /**
-     * @return AbstractField[string]
+     * @return array<string, AbstractField>
      */
     protected function getFields(): array
     {

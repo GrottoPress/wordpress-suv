@@ -26,17 +26,17 @@ abstract class AbstractSection
     protected $object;
 
     /**
-     * @var mixed[string]
+     * @var array<string, mixed>
      */
     protected $args = [];
 
     /**
-     * @var AbstractSetting[string]
+     * @var array<string, AbstractSetting>
      */
     protected $settings = [];
 
     /**
-     * @var AbstractControl[string]
+     * @var array<string, AbstractControl>
      */
     protected $controls = [];
 
@@ -56,7 +56,7 @@ abstract class AbstractSection
     }
 
     /**
-     * @return AbstractSetting[string]
+     * @return array<string, AbstractSetting>
      */
     protected function getSettings(): array
     {
@@ -64,7 +64,7 @@ abstract class AbstractSection
     }
 
     /**
-     * @return AbstractControl[string]
+     * @return array<string, AbstractControl>
      */
     protected function getControls(): array
     {

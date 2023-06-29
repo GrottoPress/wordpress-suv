@@ -19,7 +19,7 @@ abstract class AbstractApp
     private static $instances = [];
 
     /**
-     * @var AbstractSetup[string]
+     * @var array<string, AbstractSetup>
      */
     protected $setups = [];
 
@@ -37,7 +37,7 @@ abstract class AbstractApp
     }
 
     /**
-     * @return AbstractSetup[string]
+     * @return array<string, AbstractSetup>
      */
     protected function getSetups(): array
     {

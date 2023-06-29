@@ -45,7 +45,7 @@ abstract class AbstractPage
     protected $position;
 
     /**
-     * @var AbstractSection[string]
+     * @var array<string, AbstractSection>
      */
     protected $sections = [];
 
@@ -95,7 +95,7 @@ abstract class AbstractPage
     }
 
     /**
-     * @return AbstractSection[string]
+     * @return array<string, AbstractSection>
      */
     protected function getSections(): array
     {

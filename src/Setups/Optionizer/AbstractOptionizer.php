@@ -13,22 +13,22 @@ abstract class AbstractOptionizer extends AbstractSetup
     protected $capability = 'manage_options';
 
     /**
-     * @var AbstractPage[string]
+     * @var array<string, AbstractPage>
      */
     protected $pages = [];
 
     /**
-     * @var AbstractSection[string]
+     * @var array<string, AbstractSection>
      */
     protected $sections = [];
 
     /**
-     * @var AbstractSetting[string]
+     * @var array<string, AbstractSetting>
      */
     protected $settings = [];
 
     /**
-     * @var AbstractField[string]
+     * @var array<string, AbstractField>
      */
     protected $fields = [];
 
@@ -38,7 +38,7 @@ abstract class AbstractOptionizer extends AbstractSetup
     }
 
     /**
-     * @return AbstractPage[string]
+     * @return array<string, AbstractPage>
      */
     protected function getPages(): array
     {
@@ -46,7 +46,7 @@ abstract class AbstractOptionizer extends AbstractSetup
     }
 
     /**
-     * @return AbstractSection[string]
+     * @return array<string, AbstractSection>
      */
     protected function getSections(): array
     {
@@ -54,7 +54,7 @@ abstract class AbstractOptionizer extends AbstractSetup
     }
 
     /**
-     * @return AbstractSetting[string]
+     * @return array<string, AbstractSetting>
      */
     protected function getSettings(): array
     {
@@ -62,7 +62,7 @@ abstract class AbstractOptionizer extends AbstractSetup
     }
 
     /**
-     * @return AbstractField[string]
+     * @return array<string, AbstractField>
      */
     protected function getFields(): array
     {

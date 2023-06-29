@@ -26,7 +26,7 @@ abstract class AbstractSetting
     protected $object;
 
     /**
-     * @var mixed[string]
+     * @var array<string, mixed>
      */
     protected $args = [];
 
